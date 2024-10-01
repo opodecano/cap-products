@@ -1,4 +1,4 @@
-ID,createdAt,createdBy,modifiedAt,modifiedBy,Name,Description,ImageUrl,ReleaseDate,DiscontinuedDate,Price,Height,Width,Depth,Quantity
+ID,createdAt,createdBy,modifiedAt,modifiedBy,Name,Description,ImageUrl,ReleaseDate,DiscontinuedDate,Price,Height,Width,Depth,Quantity,UnitOfMeasure_Id,Currency_Id,Category_Id,Supplier_Id,DimensionUnit_Id
 08c142fa-01b0-441d-b01d-eeaa3291f6f0,2020-10-11T14:04:13.302Z,,,,Bread,Whole grain bread,/product/webapp/assets/bread.jpg,1992-01-01T00:00:00Z,,2.5,5,10,8,20,PC,USD,F,aead11fd-e35b-4f6f-a37a-e4a860aaaad7,CM
 aa74747d-c297-4f0a-981a-8fb0ca92b756,2020-10-11T14:04:13.302Z,,,,Milk,Low fat milk,/product/webapp/assets/milk.jpg,1995-10-01T00:00:00Z,,3.5,5,10,8,15,PC,USD,B,aead11fd-e35b-4f6f-a37a-e4a860aaaad7,CM
 ea610da1-ea93-4258-85e1-099167d67bf9,2020-10-11T14:04:13.302Z,,,,Vint soda,Americana Variety - Mix of 6 flavors,/product/webapp/assets/vint-soda.jpg,2000-10-01T00:00:00Z,,20.9,5,10,8,8,PC,USD,B,aead11fd-e35b-4f6f-a37a-e4a860aaaad7,CM

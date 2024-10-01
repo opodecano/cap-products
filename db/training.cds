@@ -1,7 +1,7 @@
 namespace com.training;
 
 using {
-    cuid
+    cuid, Country
 } from '@sap/cds/common';
 
 // type EmailsAddresses_01 : array of {
@@ -79,4 +79,15 @@ entity StudentCourse : cuid {
     //key ID      : UUID;
     Student : Association to Student;
     Course  : Association to Course;
+}
+
+entity Orders {
+    key ClientEmail : String(65);
+        FirstName   : String(30);
+        LastName    : String(30);
+        CreatedOn   : Date;
+        Reviewed    : Boolean;
+        Approved    : Boolean;
+        Country     : Country;
+        Status      : String(1);
 }
