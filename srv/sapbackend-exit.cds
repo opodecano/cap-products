@@ -10,7 +10,7 @@ define service SAPBackendExit {
     entity Incidents as projection on external.IncidentsSet;
 }
 
-@protocol: 'rest'
+@protocol: ['rest', 'graphql']
 service RestService {
     entity Incidents as projection on SAPBackendExit.Incidents;
 }
