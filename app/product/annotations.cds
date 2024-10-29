@@ -5,18 +5,18 @@ annotate service.Products with @(
     Capabilities : {DeleteRestrictions : {
         $Type : 'Capabilities.DeleteRestrictionsType',
         Deletable : false
-    },}
+    },},
 
     UI.HeaderInfo                : {
-        TypeName      : 'Product',
-        TypeNamePlural: 'Products',
+        TypeName      : '{i18n>Product}',
+        TypeNamePlural: '{i18n>Products}',
         ImageUrl      : ImageUrl,
         Title         : {Value: ProductName},
         Description   : {Value: Description}
     },
     UI.SelectionFields           : [
-        ToCategory_ID,
-        ToCurrency_ID,
+        CategoryId,
+        CurrencyId,
         StockAvailability
     ],
     UI.FieldGroup #GeneratedGroup: {
@@ -192,6 +192,13 @@ annotate service.Products with @(
     ],
 );
 
+
+annotate service.Products with {
+    CategoryId        @title : '{i18n>CategoryId}';
+    CurrencyId        @title : '{i18n>CurrencyId}';
+    StockAvailability @title : '{i18n>StockAvailability}';
+};
+
 annotate service.Products with {
     Supplier @Common.ValueList: {
         $Type         : 'Common.ValueListType',
@@ -226,7 +233,12 @@ annotate service.Products with {
     ImageUrl @(UI.IsImageURL: true)
 };
 
-
+annotate service.Products with @(UI.DataPoint #AverageRatings: {
+    Value        : Rating,
+    Title        : 'Rating',
+    TargetValue  : 5,
+    Visualization: #Rating
+}, );
 /**
  * Anotations for SH
  */
@@ -379,13 +391,4 @@ annotate service.Supplier with @(Communication: {Contact: {
 
 }, });
 
-/**
- *  Data Point for Average Rating
- */
 
-annotate service.Products with @(UI.DataPoint #AverageRatings: {
-    Value        : Rating,
-    Title        : 'Rating',
-    TargetValue  : 5,
-    Visualization: #Rating
-}, );
