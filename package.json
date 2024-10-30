@@ -1,0 +1,98 @@
+{
+  "name": "cap-products",
+  "version": "1.0.0",
+  "description": "A simple CAP project.",
+  "repository": "<Add your repository here>",
+  "license": "UNLICENSED",
+  "private": true,
+  "dependencies": {
+    "@cap-js-community/odata-v2-adapter": "^1.13.6",
+    "@cap-js/hana": "^1",
+    "@graphql-tools/schema": "^10.0.7",
+    "@sap-cloud-sdk/http-client": "^3.22.2",
+    "@sap-cloud-sdk/resilience": "^3.22.2",
+    "@sap/cds": "^8",
+    "@sap/eslint-plugin-ui5-jsdocs": "^2.0.5",
+    "@sap/hdi-deploy": "^5.3.2",
+    "@sapui5/ts-types": "^1.92.2",
+    "cors": "^2.8.5",
+    "dotenv": "^16.4.5",
+    "eslint": "^7.32.0",
+    "express": "^4",
+    "@sap/xssec": "^4"
+  },
+  "devDependencies": {
+    "@cap-js/cds-types": "^0.6",
+    "@cap-js/sqlite": "^1",
+    "@sap/cds-dk": "^8",
+    "cds-swagger-ui-express": "^0.10.0"
+  },
+  "scripts": {
+    "start": "cds-serve"
+  },
+  "cds": {
+    "fiori": {
+      "preview": true
+    },
+    "server": {
+      "index": true
+    },
+    "cdsc": {
+      "severities": {
+        "odata-spec-violation-no-key": "Warning"
+      }
+    },
+    "i18n": {
+      "default_language": "en",
+      "folders": [
+        "_i18n",
+        "i18n",
+        "assets/i18n"
+      ]
+    },
+    "requires": {
+      "application-logging": false,
+      "auth": "mocked",
+      "db": {
+        "[development]": {
+          "kind": "sqlite",
+          "impl": "@cap-js/sqlite",
+          "credentials": {
+            "url": "memory"
+          }
+        },
+        "[production]": {
+          "kind": "hana",
+          "impl": "@cap-js/hana",
+          "deploy-format": "hdbtable"
+        }
+      },
+      "sapbackend": {
+        "kind": "odata-v2",
+        "model": "srv/external/sapbackend",
+        "[development]": {
+          "credentials": {
+            "requestTimeout": 30000,
+            "url": "http://erp13.sap4practice.com:9037/sap/opu/odata/sap/YSAPUI5_SRV_01",
+            "authentication": "NoAuthentication"
+          }
+        },
+        "[production]": {
+          "credentials": {
+            "destination": "NPL_Backend"
+          }
+        }
+      },
+      "[production]": {
+        "auth": "xsuaa",
+        "db": "hana"
+      }
+    },
+    "sql": {
+      "native_hana_associations": false
+    }
+  },
+  "sapux": [
+    "app/product"
+  ]
+}
